@@ -46,20 +46,20 @@ class _CategoryArticleViewState extends State<CategoryArticleView> {
       builder: (context, state) {
         switch (state.runtimeType) {
           //state when the category data is loading
-          case CategoryDataLoadingState:
+          case const (CategoryDataLoadingState):
             return const LoadingWidget();
 
           //state when the category data is loaded
-          case CategoryDataLoadedState:
+          case const (CategoryDataLoadedState):
             final categoryDataLoadedState = state as CategoryDataLoadedState;
 
             return Scaffold(
               bottomNavigationBar: const BottomNavigation(),
               body: SafeArea(
-                  child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.all(22),
-                  child: Column(
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(22),
+                    child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       // Column children
                       children: [
@@ -67,7 +67,10 @@ class _CategoryArticleViewState extends State<CategoryArticleView> {
                         GradientText(
                           "${widget.categoryName} related articles",
                           style: const TextStyle(
-                              fontSize: 28, fontWeight: FontWeight.w600,height: 1),
+                            fontSize: 28,
+                            fontWeight: FontWeight.w600,
+                            height: 1,
+                          ),
                           colors: [
                             MyTheme.myTheme.colorScheme.primary,
                             MyTheme.myTheme.colorScheme.secondary,
@@ -76,9 +79,7 @@ class _CategoryArticleViewState extends State<CategoryArticleView> {
                         ),
 
                         //sized box
-                        const SizedBox(
-                          height: 9,
-                        ),
+                        const SizedBox(height: 9),
 
                         // Text
                         Text(
@@ -120,9 +121,11 @@ class _CategoryArticleViewState extends State<CategoryArticleView> {
                             },
                           ),
                         ),
-                      ]),
+                      ],
+                    ),
+                  ),
                 ),
-              )),
+              ),
             );
 
           // default container to be returned

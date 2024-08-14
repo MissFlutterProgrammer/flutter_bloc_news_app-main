@@ -26,14 +26,15 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
 
   //method to handle the data loading event of specific category articles
   FutureOr<void> _categoryDataLoadingEvent(
-      CategoryDataLoadingEvent event, Emitter<CategoryState> emit)async {
+      CategoryDataLoadingEvent event, Emitter<CategoryState> emit) async {
     emit(CategoryDataLoadingState());
 
     //call the data loading method and emit the data loaded state
-     var result = await GetCategoricalArticles.getIndianHeadlines(event.categoryName);
-      
-    //if the result is not false then --> 
-    if(result != false){
+    var result =
+        await GetCategoricalArticles.getIndianHeadlines(event.categoryName);
+
+    //if the result is not false then -->
+    if (result != false) {
       //emit the data successfully loaded state : op
       emit(CategoryDataLoadedState(articleList: result["articleList"]));
     }

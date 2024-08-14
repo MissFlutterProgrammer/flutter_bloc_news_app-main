@@ -5,7 +5,6 @@ import 'package:http/http.dart' as http;
 //method to get top headlines related to india
 
 class GetCategoricalArticles {
-
   //method to get data
   static dynamic getIndianHeadlines(String category) async {
     //defining the url
@@ -25,7 +24,8 @@ class GetCategoricalArticles {
 
       //creating a list of Article models
       List<ArticleModel> articleModelList = articleRawList
-          .map((article) => ArticleModel(
+          .map(
+            (article) => ArticleModel(
               source: article['source']['name'],
               author: article['author'],
               title: article['title'],
@@ -33,7 +33,9 @@ class GetCategoricalArticles {
               articleUrl: article['url'],
               imageUrl: article["urlToImage"],
               publishedAt: article["publishedAt"],
-              content: article["content"]))
+              content: article["content"],
+            ),
+          )
           .toList();
 
       //return the result in form a Map

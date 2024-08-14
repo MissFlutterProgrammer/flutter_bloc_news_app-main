@@ -5,20 +5,14 @@ sealed class HomeState {}
 
 final class HomeInitial extends HomeState {}
 
-
-
 //if data is loading
-class HomeDataLoadingState extends HomeState{}
-
-
+class HomeDataLoadingState extends HomeState {}
 
 //if the data is loaded successfully
-class HomeDataLoadedState extends HomeState{
+class HomeDataLoadedState extends HomeState {
   final List<ArticleModel> articleList;
   HomeDataLoadedState({required this.articleList});
 }
 
-
-
 //error event
-class HomeDataLoadingErrorState extends HomeState{}
+class HomeDataLoadingErrorState extends HomeState {}

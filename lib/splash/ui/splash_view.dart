@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutternews/home/ui/home_view.dart';
 import 'package:flutternews/theme/mythemes.dart';
@@ -17,7 +19,11 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     Future.delayed(const Duration(seconds: 2), () {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const HomeView()));
+        context,
+        MaterialPageRoute(
+          builder: (context) => const HomeView(),
+        ),
+      );
     });
     super.initState();
   }
@@ -38,18 +44,23 @@ class _SplashViewState extends State<SplashView> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Flutter", style: MyTheme.myTheme.textTheme.displayLarge),
-                GradientText("News",
-                    style: const TextStyle(
-                      letterSpacing: -.5,
-                      fontSize: 38,
-                      fontWeight: FontWeight.w600,
-                    ),
-                    colors: [
-                      MyTheme.myTheme.colorScheme.primary,
-                      MyTheme.myTheme.colorScheme.secondary,
-                      MyTheme.myTheme.colorScheme.tertiary,
-                    ])
+                Text(
+                  "Flutter",
+                  style: MyTheme.myTheme.textTheme.displayLarge,
+                ),
+                GradientText(
+                  "News",
+                  style: const TextStyle(
+                    letterSpacing: -.5,
+                    fontSize: 38,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  colors: [
+                    MyTheme.myTheme.colorScheme.primary,
+                    MyTheme.myTheme.colorScheme.secondary,
+                    MyTheme.myTheme.colorScheme.tertiary,
+                  ],
+                )
               ],
             ),
 
@@ -68,7 +79,9 @@ class _SplashViewState extends State<SplashView> {
             const SizedBox(height: 100),
 
             LoadingAnimationWidget.waveDots(
-                color: MyTheme.myTheme.colorScheme.secondary, size: 40)
+              color: MyTheme.myTheme.colorScheme.secondary,
+              size: 40,
+            )
           ],
         ),
       ),

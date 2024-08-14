@@ -9,7 +9,7 @@ import 'package:flutternews/widgets/helpers/loading_animation_widget.dart';
 import 'package:flutternews/widgets/tiles/news_article_tile_widget.dart';
 
 class HomeView extends StatefulWidget {
-  const HomeView({Key? key}) : super(key: key);
+  const HomeView({super.key});
 
   @override
   State<HomeView> createState() => _HomeViewState();
@@ -37,11 +37,11 @@ class _HomeViewState extends State<HomeView> {
       builder: (context, state) {
         switch (state.runtimeType) {
           // Loading state to show the loading animation
-          case HomeDataLoadingState:
+          case const (HomeDataLoadingState):
             return const LoadingWidget();
 
           //displaying data of the loading ends
-          case HomeDataLoadedState:
+          case const (HomeDataLoadedState):
             // Getting the state data
             final homeDataLoadedState = state as HomeDataLoadedState;
 
@@ -73,9 +73,7 @@ class _HomeViewState extends State<HomeView> {
 
                         // Gradient container
                         const GradientContainer(),
-                        const SizedBox(
-                          height: 25,
-                        ),
+                        const SizedBox(height: 25),
 
                         // Text
                         Text(
@@ -111,12 +109,12 @@ class _HomeViewState extends State<HomeView> {
                                   //adding the required animations at the end
                                   .animate()
                                   .slideX(
-                                      begin: -10,
-                                      end: 0,
-                                      duration: const Duration(seconds: 1),
-                                      curve: Curves.fastEaseInToSlowEaseOut,
-                                      delay:
-                                          Duration(milliseconds: 200 * index));
+                                    begin: -10,
+                                    end: 0,
+                                    duration: const Duration(seconds: 1),
+                                    curve: Curves.fastEaseInToSlowEaseOut,
+                                    delay: Duration(milliseconds: 200 * index),
+                                  );
                             },
                           ),
                         ),

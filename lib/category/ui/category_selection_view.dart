@@ -34,13 +34,16 @@ class CategorySelectionView extends StatelessWidget {
 
     return BlocConsumer<CategoryBloc, CategoryState>(
       bloc: categoryBloc,
-
       listener: (context, state) {
         if (state is CategoryClickedActionState) {
           Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) =>  CategoryArticleView(categoryName: state.categoryName,)));
+            context,
+            MaterialPageRoute(
+              builder: (context) => CategoryArticleView(
+                categoryName: state.categoryName,
+              ),
+            ),
+          );
         }
       },
       builder: (context, state) {
@@ -50,61 +53,68 @@ class CategorySelectionView extends StatelessWidget {
 
           //main content to be returned
           body: SafeArea(
-              child: Padding(
-            padding: const EdgeInsets.all(22),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Text
-                Text(
-                  "Categories",
-                  style: MyTheme.myTheme.textTheme.displayLarge,
-                ),
+            child: Padding(
+              padding: const EdgeInsets.all(22),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Text
+                  Text(
+                    "Categories",
+                    style: MyTheme.myTheme.textTheme.displayLarge,
+                  ),
 
-                // Text
-                Text(
-                  "Read about various categories as per your interests",
-                  style: MyTheme.myTheme.textTheme.displaySmall,
-                ),
+                  // Text
+                  Text(
+                    "Read about various categories as per your interests",
+                    style: MyTheme.myTheme.textTheme.displaySmall,
+                  ),
 
-                //categories mapping within the gridview
-                Expanded(
-                  child: GridView.builder(
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 25,
-                      ),
-                      itemCount: categoryList.length,
-                      itemBuilder: (context, index) {
-                        return InkWell(
-                          onTap: () {
-                            categoryBloc.add(ClickedOnCategoryEvent(categoryName: categoryList[index]));
-                          },
-                          child: CategoryTileWidget(
-                                  categoryImagePath:
-                                      "assets/images/cat${index + 1}.png",
-                                  categoryName: categoryList[
-                                      index]) //adding the required animations at the end
+                  //categories mapping within the gridview
+                  Expanded(
+                    child: GridView.builder(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 25,
+                        ),
+                        itemCount: categoryList.length,
+                        itemBuilder: (context, index) {
+                          return InkWell(
+                            onTap: () {
+                              categoryBloc.add(
+                                ClickedOnCategoryEvent(
+                                  categoryName: categoryList[index],
+                                ),
+                              );
+                            },
+                            child: CategoryTileWidget(
+                              categoryImagePath:
+                                  "assets/images/cat${index + 1}.png",
+                              categoryName: categoryList[index],
+                            ) //adding the required animations at the end
 
-                              //adding the animate addon
-                              .animate()
+                                //adding the animate addon
+                                .animate()
 
-                              //adding fadeIn effect
-                              .fadeIn(
+                                //adding fadeIn effect
+                                .fadeIn(
                                   duration: const Duration(seconds: 2),
-                                  curve: Curves.decelerate)
+                                  curve: Curves.decelerate,
+                                )
 
-                              //adding the shimmer effect
-                              .shimmer(
+                                //adding the shimmer effect
+                                .shimmer(
                                   duration: const Duration(seconds: 3),
-                                  curve: Curves.fastEaseInToSlowEaseOut),
-                        );
-                      }),
-                )
-              ],
+                                  curve: Curves.fastEaseInToSlowEaseOut,
+                                ),
+                          );
+                        }),
+                  )
+                ],
+              ),
             ),
-          )),
+          ),
         );
       },
     );

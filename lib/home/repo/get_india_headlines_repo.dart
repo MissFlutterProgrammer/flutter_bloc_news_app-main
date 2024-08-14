@@ -24,7 +24,8 @@ class GetIndiaHeadlines {
 
       //creating a list of Article models
       List<ArticleModel> articleModelList = articleRawList
-          .map((article) => ArticleModel(
+          .map(
+            (article) => ArticleModel(
               source: article['source']['name'],
               author: article['author'],
               title: article['title'],
@@ -32,7 +33,9 @@ class GetIndiaHeadlines {
               articleUrl: article['url'],
               imageUrl: article["urlToImage"],
               publishedAt: article["publishedAt"],
-              content: article["content"]))
+              content: article["content"],
+            ),
+          )
           .toList();
 
       //return the result in form a Map

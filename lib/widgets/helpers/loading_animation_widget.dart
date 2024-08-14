@@ -12,7 +12,10 @@ class LoadingWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            LoadingAnimationWidget.fourRotatingDots(color: Colors.black87, size: 40),
+            LoadingAnimationWidget.fourRotatingDots(
+              color: Colors.black87,
+              size: 40,
+            ),
             const SizedBox(height: 20),
             Text(
               "Getting News for you 🕊️",

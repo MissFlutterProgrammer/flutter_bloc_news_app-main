@@ -11,15 +11,17 @@ class GradientContainer extends StatelessWidget {
       margin: const EdgeInsets.only(top: 20),
       width: double.maxFinite,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(7),
-          gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                MyTheme.myTheme.colorScheme.primary,
-                MyTheme.myTheme.colorScheme.secondary,
-                MyTheme.myTheme.colorScheme.tertiary
-              ])),
+        borderRadius: BorderRadius.circular(7),
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            MyTheme.myTheme.colorScheme.primary,
+            MyTheme.myTheme.colorScheme.secondary,
+            MyTheme.myTheme.colorScheme.tertiary
+          ],
+        ),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(

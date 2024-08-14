@@ -8,13 +8,14 @@ class ArticleModel {
   final String? publishedAt;
   final String? content;
 
-  ArticleModel(
-      {required this.source,
-      required this.author,
-      required this.title,
-      required this.description,
-      required this.articleUrl,
-      required this.imageUrl,
-      required this.publishedAt,
-      required this.content});
+  ArticleModel({
+    required this.source,
+    required this.author,
+    required this.title,
+    required this.description,
+    required this.articleUrl,
+    required this.imageUrl,
+    required this.publishedAt,
+    required this.content,
+  });
 }

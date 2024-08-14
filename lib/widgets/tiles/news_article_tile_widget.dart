@@ -12,13 +12,13 @@ class NewsArticleTile extends StatelessWidget {
   final String? articleUrl;
 
   const NewsArticleTile({
-    Key? key,
+    super.key,
     required this.author,
     required this.date,
     required this.title,
     required this.imageUrl,
     required this.articleUrl,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -42,18 +42,24 @@ class NewsArticleTile extends StatelessWidget {
                             return child;
                           }
                           return Container(
-                              color: Colors.black12,
-                              width: 118,
-                              height: 118,
-                              child: LoadingAnimationWidget.fourRotatingDots(
-                                  color: Colors.black54, size: 30));
+                            color: Colors.black12,
+                            width: 118,
+                            height: 118,
+                            child: LoadingAnimationWidget.fourRotatingDots(
+                              color: Colors.black54,
+                              size: 30,
+                            ),
+                          );
                         },
                         errorBuilder: (context, error, stackTrace) {
                           return Container(
                             width: 118,
                             height: 118,
                             color: Colors.black12,
-                            child: const Icon(Icons.error_outline, size: 40),
+                            child: const Icon(
+                              Icons.error_outline,
+                              size: 40,
+                            ),
                           );
                         },
                       )
@@ -61,7 +67,10 @@ class NewsArticleTile extends StatelessWidget {
                         height: 118,
                         width: 118,
                         color: Colors.black12,
-                        child: const Icon(Icons.photo, size: 40),
+                        child: const Icon(
+                          Icons.photo,
+                          size: 40,
+                        ),
                       ),
               ),
               const SizedBox(width: 15),
@@ -98,10 +107,14 @@ class NewsArticleTile extends StatelessWidget {
                         ButtonWidget(
                           onTap: () {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        ArticleView(articleUrl: articleUrl!,articleName: author.toString(),)));
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ArticleView(
+                                  articleUrl: articleUrl!,
+                                  articleName: author.toString(),
+                                ),
+                              ),
+                            );
                           },
                           height: 36,
                           width: 129.62,

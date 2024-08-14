@@ -14,7 +14,7 @@ class ClickedOnCategoryEvent extends CategoryEvent {
 //=======================================================//
 // these events are only for the category article list page where the articles of a specific categories are listed
 
-// 1. suppose the category news articles are getting loaded 
+// 1. suppose the category news articles are getting loaded
 class CategoryDataLoadingEvent extends CategoryEvent {
   final String categoryName;
   CategoryDataLoadingEvent({required this.categoryName});

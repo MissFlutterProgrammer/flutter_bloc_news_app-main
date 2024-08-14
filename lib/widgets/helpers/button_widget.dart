@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutternews/theme/mythemes.dart';
 
 class ButtonWidget extends StatelessWidget {
-
   final double height;
   final double width;
   final Function onTap;
-  const ButtonWidget({super.key, required this.height, required this.width, required this.onTap});
+  const ButtonWidget({
+    super.key,
+    required this.height,
+    required this.width,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +22,9 @@ class ButtonWidget extends StatelessWidget {
         height: height,
         width: width,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5), color: Colors.black),
+          borderRadius: BorderRadius.circular(5),
+          color: Colors.black,
+        ),
         child: Center(
           child: Text(
             'Read more',
