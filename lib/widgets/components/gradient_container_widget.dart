@@ -42,7 +42,11 @@ class GradientContainer extends StatelessWidget {
 
         //required animations
         .animate()
-        .fade(duration: const Duration(seconds: 2))
-        .shimmer(duration: const Duration(seconds: 2));
+        .fade(
+          duration: const Duration(seconds: 2),
+        )
+        .shimmer(
+          duration: const Duration(seconds: 2),
+        );
   }
 }

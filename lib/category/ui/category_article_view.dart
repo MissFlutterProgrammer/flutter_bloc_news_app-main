@@ -22,8 +22,9 @@ class _CategoryArticleViewState extends State<CategoryArticleView> {
   @override
   void initState() {
     //pass the loading state as soon as the page gets loaded
-    categoryBloc
-        .add(CategoryDataLoadingEvent(categoryName: widget.categoryName));
+    categoryBloc.add(
+      CategoryDataLoadingEvent(categoryName: widget.categoryName),
+    );
     super.initState();
   }
 
@@ -97,27 +98,27 @@ class _CategoryArticleViewState extends State<CategoryArticleView> {
                             itemBuilder: (context, index) {
                               // Return your news article tile widget here based on index
                               return NewsArticleTile(
-                                      author: categoryDataLoadedState
-                                          .articleList[index].author,
-                                      title: categoryDataLoadedState
-                                          .articleList[index].title,
-                                      date: categoryDataLoadedState
-                                          .articleList[index].publishedAt,
-                                      imageUrl: categoryDataLoadedState
-                                          .articleList[index]
-                                          .imageUrl, //imageUrl
-                                      articleUrl: categoryDataLoadedState
-                                          .articleList[index].articleUrl)
+                                author: categoryDataLoadedState
+                                    .articleList[index].author,
+                                title: categoryDataLoadedState
+                                    .articleList[index].title,
+                                date: categoryDataLoadedState
+                                    .articleList[index].publishedAt,
+                                imageUrl: categoryDataLoadedState
+                                    .articleList[index].imageUrl, //imageUrl
+                                articleUrl: categoryDataLoadedState
+                                    .articleList[index].articleUrl,
+                              )
 
                                   //adding the required animations at the end
                                   .animate()
                                   .slideX(
-                                      begin: -10,
-                                      end: 0,
-                                      duration: const Duration(seconds: 1),
-                                      curve: Curves.fastEaseInToSlowEaseOut,
-                                      delay:
-                                          Duration(milliseconds: 200 * index));
+                                    begin: -10,
+                                    end: 0,
+                                    duration: const Duration(seconds: 1),
+                                    curve: Curves.fastEaseInToSlowEaseOut,
+                                    delay: Duration(milliseconds: 200 * index),
+                                  );
                             },
                           ),
                         ),
