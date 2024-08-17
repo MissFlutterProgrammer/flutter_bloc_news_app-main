@@ -36,7 +36,11 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     //if the result is not false then -->
     if (result != false) {
       //emit the data successfully loaded state : op
-      emit(CategoryDataLoadedState(articleList: result["articleList"]));
+      emit(
+        CategoryDataLoadedState(
+          articleList: result["articleList"],
+        ),
+      );
     }
   }
 }

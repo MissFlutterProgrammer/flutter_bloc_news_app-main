@@ -83,11 +83,12 @@ class NewsArticleTile extends StatelessWidget {
                   children: [
                     // Author and uploading date
                     Text(
-                      author != null && date != null
-                          ? "${author!.length > 15 ? author!.substring(0, 15) : author}... ${date!.split("T")[0]}"
-                          : "Source unknown",
-                      style: MyTheme.myTheme.textTheme.displaySmall,
-                    ),
+                        author != null && date != null
+                            ? "${author!.length > 15 ? author!.substring(0, 15) : author}... ${date!.split("T")[0]}"
+                            : "Source unknown",
+                        style: MyTheme.myTheme.textTheme.displaySmall
+                        // style: TextStyle(fontSize: 20),
+                        ),
 
                     const SizedBox(height: 3),
 

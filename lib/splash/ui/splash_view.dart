@@ -35,7 +35,6 @@ class _SplashViewState extends State<SplashView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            //image asset
             Image.asset(
               'assets/main/main.jpg',
               width: 340,

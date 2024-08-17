@@ -48,24 +48,17 @@ class _HomeViewState extends State<HomeView> {
             return Scaffold(
               bottomNavigationBar: const BottomNavigation(),
               body: SafeArea(
-                // Padding
                 child: Padding(
                   padding: const EdgeInsets.all(22),
-
-                  // Column
                   child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-
-                      // Column children
                       children: [
-                        // Text
                         Text(
                           "Discover",
                           style: MyTheme.myTheme.textTheme.displayLarge,
                         ),
 
-                        // Text
                         Text(
                           "Read your favourite news articles in just one click",
                           style: MyTheme.myTheme.textTheme.displaySmall,
@@ -75,7 +68,6 @@ class _HomeViewState extends State<HomeView> {
                         const GradientContainer(),
                         const SizedBox(height: 25),
 
-                        // Text
                         Text(
                           "Top headlines from India",
                           style: MyTheme.myTheme.textTheme.labelMedium,
@@ -90,18 +82,14 @@ class _HomeViewState extends State<HomeView> {
                             itemBuilder: (context, index) {
                               // Return your news article tile widget here based on index
                               return NewsArticleTile(
-                                author: homeDataLoadedState //author
-                                    .articleList[index]
-                                    .author,
-                                title: homeDataLoadedState //title
-                                    .articleList[index]
-                                    .title,
-                                date: homeDataLoadedState //date
-                                    .articleList[index]
-                                    .publishedAt,
-                                imageUrl: homeDataLoadedState //imageUrl
-                                    .articleList[index]
-                                    .imageUrl,
+                                author: homeDataLoadedState
+                                    .articleList[index].author,
+                                title: homeDataLoadedState
+                                    .articleList[index].title,
+                                date: homeDataLoadedState
+                                    .articleList[index].publishedAt,
+                                imageUrl: homeDataLoadedState
+                                    .articleList[index].imageUrl,
                                 articleUrl: homeDataLoadedState
                                     .articleList[index].articleUrl,
                               )
